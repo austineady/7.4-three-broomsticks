@@ -4,6 +4,10 @@ var Order = Backbone.Model.extend({
 
   idAttribute: 'objectId',
 
+  urlRoot: 'https://api.parse.com/1/classes/Orders',
+
+  total: 0,
+
   defaults: {
     name: ''
   },
@@ -37,7 +41,5 @@ var Order = Backbone.Model.extend({
   }
 });
 
-var OrderCollection = Backbone.Collection.extend({
-  model: Order,
-  url: 'https://api.parse.com/1/classes/Orders'
-});
+
+export default {Order};

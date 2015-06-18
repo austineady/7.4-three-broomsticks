@@ -93,6 +93,7 @@ body {
   position: relative;
   top: 33%;
   margin: 0;
+  padding-bottom: 20px;
   text-align: center;
   background-size: cover;
   box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, .2);
@@ -115,7 +116,7 @@ body {
   height: auto;
   float: left;
   border: 1px solid white;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(250, 250, 250, 1);
 }
 
 .drink-item {
@@ -139,15 +140,101 @@ body {
   float: left;
   border: 1px solid rgba(10, 16, 26, .98);
   background-color: rgba(250, 250, 250, 1);
-  color: rgba(250, 250, 250, 1);
+  color: rgba(10, 16, 26, .98);
 }
 
 .add-to-cart-button:hover {
   background-color: rgba(10, 16, 26, .98);
-  color: white;
+  color: rgba(250, 250, 250, 1);
   transition: 1s;
 }
 
 .description-text {
   font-size: 20px;
+}
+
+.shopping-cart {
+  @include span-columns(12);
+  height: auto;
+  bottom: 0;
+  position: fixed;
+  background-color: rgba(11, 25, 51, 1);
+}
+
+.cartbox {
+  @include span-columns(4);
+  @include shift(5.5);
+  color: white;
+  font-size: 30px;
+}
+
+.fa-shopping-cart {
+  @include span-columns(1.5);
+  font-size: 40px;
+  margin-right: 10px;
+}
+
+/* .fa-caret-square-o-down {
+  @include span-columns(2);
+  @include shift(8);
+  height: 20px;
+  font-size: 30px;
+} */
+
+.item-number-text {
+  @include span-columns(1);
+  font-size: 30px;
+  margin-left: 15px;
+  margin-top: 3px;
+}
+
+.fa-sort {
+  position: relative;
+  left: -5%;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.drop-footer {
+  @include span-columns(1);
+  @include omega();
+  height: 40px;
+  position: relative;
+  z-index: 1;
+  margin-top: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 0;
+}
+
+.drop-footer-down {
+  @include span-columns(1);
+  @include omega();
+  height: 40px;
+  position: relative;
+  z-index: 1;
+  margin-top: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 0;
+}
+
+.shopping-cart-item-box {
+  @include span-columns(12);
+  display: none;
+}
+
+.cart-item {
+  @include span-columns(8);
+  @include shift(2);
+  height: auto;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 5px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.cart-price {
+  float: right;
 }
