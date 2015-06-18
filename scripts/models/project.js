@@ -1,10 +1,8 @@
 import {DrinkCollection} from './drinkcollection';
 
-export default Backbone.Model.extend({
+var Order = Backbone.Model.extend({
 
   idAttribute: 'objectId',
-
-  urlRoot: 'https://api.parse.com/1/Project',
 
   defaults: {
     name: ''
@@ -37,4 +35,9 @@ export default Backbone.Model.extend({
       })
     });
   }
+});
+
+var OrderCollection = Backbone.Collection.extend({
+  model: Order,
+  url: 'https://api.parse.com/1/classes/Orders'
 });
