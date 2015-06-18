@@ -57,15 +57,85 @@ body {
 .distillery-content {
   @include span-columns(12);
   height: 100vw;
+}
+
+.distillery-header-background {
+  @include span-columns(12);
+  height: 500px;
+  position: fixed;
+  z-index: -1;
   background: url('../../assets/distillery.jpg');
   background-size: cover;
-  background-position: -300px;
+  background-position: 0 -150px;
+  background-repeat: no-repeat;
+}
+
+.distillery-header-background-two {
+  @include span-columns(12);
+  margin-top: 500px;
+  height: 500px;
+  position: fixed;
+  z-index: -1;
+  background: url('../../assets/front-view.jpg');
+  background-size: cover;
+  background-position: 0 -150px;
   background-repeat: no-repeat;
 }
 
 .list-container {
   @include span-columns(12);
-  height: 100vw;
+  height: auto;
+  position: relative;
+  top: 33%;
   margin: 0;
-  background-color: rgba(0, 0, 0, .7)
+  text-align: center;
+  background-color: rgba(16, 17, 18, .98);
+  //overflow-y: scroll;
+}
+
+.drink-item-container {
+  @include span-columns(11);
+  @include shift(.3);
+  height: auto;
+  color: white;
+  margin-top: 30px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid silver;
+}
+
+.drink-item-picture {
+  @include span-columns(4);
+  height: auto;
+  float: left;
+  border: 1px solid white;
+}
+
+.drink-item {
+  @include span-columns(6);
+  float: left;
+  margin: 10px;
+}
+
+.drink-text {
+  @include span-columns(6);
+  float: left;
+  margin: 10px;
+  text-decoration: underline;
+}
+
+.add-to-cart-button {
+  @include span-columns(2.2);
+  @include shift(2);
+  height: 50px;
+  margin-top: 30px;
+  float: left;
+  border: 1px solid white;
+  background-color: rgba(16, 17, 18, 1);
+  color: white;
+}
+
+.add-to-cart-button:hover {
+  background-color: white;
+  color: rgba(16, 17, 18, 1);
+  transition: 1s;
 }

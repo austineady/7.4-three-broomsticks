@@ -1,8 +1,10 @@
-<li class="drink-item">
+<li class="drink-item-container">
   <img src="{{picture}}" class="drink-item-picture">
-  <h3 class="drink-item name">{{name}}</h3>
+  <h1 class="drink-item name">{{name}}</h1>
+  <h2 class="drink-text">Ingredients</h2>
   <h3 class="drink-item contents">{{contents}}</h3>
   <p class="drink-item description">{{description}}</p>
-  <span class="drink-item abv">{{abv}}</span>
-  <span class="drink-item price">{{price}}</span>
+  <span class="drink-item abv">{{abv}} abv</span>
+  <span class="drink-item price">$ {{price}}</span>
+  <button class="add-to-cart-button">Add to cart</button>
 </li>
