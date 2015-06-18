@@ -15,7 +15,38 @@ $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
 
 body {
+  @include outer-container(1500px);
+  max-height: 100vh;
   font-family: $base-font-family;
   background-color: $base-background-color;
   color: $base-font-color;
+  margin: 0;
+}
+
+.indexcontent {
+  @include span-columns(12);
+  height: 100vh;
+  background-image: url('../../assets/ThreeBroomSticksCover2.jpg');
+  background-size: cover;
+  background-position: 0 -100px;
+  margin: 0;
+}
+
+.indexheader {
+  @include span-columns(12);
+  height: 100px;
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.nav {
+  @include span-columns(3);
+  color: white;
+}
+
+.nav-logo-box {
+  @include span-columns(2);
+  height: 90px;
+  opacity: .7;
+  background-image: url('../../assets/tbslogo.jpg');
+  background-size: cover;
 }
