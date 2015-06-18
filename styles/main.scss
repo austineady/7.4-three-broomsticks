@@ -17,7 +17,7 @@ $base-background-color: $very-light-gray;
 body {
   @include outer-container(1500px);
   max-height: 100vh;
-  font-family: $base-font-family;
+  font-family: 'Alegreya SC', serif;;
   background-color: $base-background-color;
   color: $base-font-color;
   margin: 0;
@@ -35,11 +35,14 @@ body {
 .indexheader {
   @include span-columns(12);
   height: 100px;
-  background-color: rgba(0, 0, 0, .8);
+  background-color: rgba(0, 0, 0, .5);
+  line-height: 25px;
+  padding: 20px;
 }
 
 .nav {
-  @include span-columns(3);
+  @include span-columns(2);
+  @include shift(1);
   color: white;
 }
 
@@ -49,4 +52,20 @@ body {
   opacity: .7;
   background-image: url('../../assets/tbslogo.jpg');
   background-size: cover;
+}
+
+.distillery-content {
+  @include span-columns(12);
+  height: 100vw;
+  background: url('../../assets/distillery.jpg');
+  background-size: cover;
+  background-position: -300px;
+  background-repeat: no-repeat;
+}
+
+.list-container {
+  @include span-columns(12);
+  height: 100vw;
+  margin: 0;
+  background-color: rgba(0, 0, 0, .7)
 }
