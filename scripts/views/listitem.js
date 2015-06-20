@@ -2,7 +2,7 @@ export default Backbone.View.extend({
   template: JST.item,
 
   events: {
-    'click .add-to-cart-button': 'addToOrder'
+    'click .add-to-cart-button': 'addToOrder',
   },
 
   initialize: function() {
@@ -17,7 +17,7 @@ export default Backbone.View.extend({
   addToOrder: function(e) {
     e.preventDefault();
     this.drinks.add(this.model);
-    console.log(this.drinks);
     this.render();
   }
+
 });

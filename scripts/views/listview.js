@@ -11,7 +11,8 @@ export default Backbone.View.extend({
   events: {
     'click .add-to-cart-button': 'displayFoot',
     'click .drop-footer': 'displayItems',
-    'click .drop-footer-down': 'hideItems'
+    'click .drop-footer-down': 'hideItems',
+    'click .remove-cart-item': 'removeFromOrder'
   },
 
   initialize: function() {
@@ -27,8 +28,16 @@ export default Backbone.View.extend({
   },
 
   displayFoot: function() {
-    var orderview = new OrderView({model: this.model});
-    $('.shopping-cart').html(orderview.el);
+    if(this.model.drinks.length > 0) {
+      var orderview = new OrderView({model: this.model});
+      $('.shopping-cart').html(orderview.el);
+    }
+  },
+
+  removeFromOrder: function(e) {
+    e.preventDefault();
+    this.model.drinks.remove(this.model);
+    this.displayFoot();
   },
 
   displayItems: function(e) {

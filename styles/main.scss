@@ -23,6 +23,10 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .indexcontent {
   @include span-columns(12);
   height: 100vh;
@@ -35,7 +39,7 @@ body {
 .indexheader {
   @include span-columns(12);
   height: 100px;
-  background-color: rgba(0, 0, 0, .85);
+  background-color: rgba(64, 56, 54, 1);
   line-height: 25px;
   padding: 20px;
 }
@@ -149,6 +153,21 @@ body {
   transition: 1s;
 }
 
+.remove-cart-item {
+  background-color: inherit;
+  color: white;
+  border: 1px solid white;
+  margin-right: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.remove-cart-item:hover {
+  background-color: white;
+  color: rgba(17, 23, 33, 1);
+  transition: 1s;
+}
+
 .description-text {
   font-size: 20px;
 }
@@ -255,4 +274,22 @@ body {
   padding: 5px;
   color: white;
   margin-bottom: 10px;
+}
+
+.checkout-button {
+  @include span-columns(3);
+  @include shift(4);
+  height: 30px;
+  background-color: inherit;
+  border: 1px solid white;
+  color: white;
+  margin-top: 25px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.checkout-button:hover {
+  background-color: white;
+  color: rgba(17, 23, 33, 1);
+  transition: 1s;
 }

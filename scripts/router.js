@@ -2,6 +2,7 @@ import IndexView from './views/indexview';
 import ListView from './views/listview';
 import ajaxConfig from './ajax-config';
 import OrderView from './views/orderview';
+import CheckoutView from './views/checkoutview';
 
 import {DrinkCollection} from './models/drinkcollection';
 import {Order} from './models/project';
@@ -37,8 +38,7 @@ var Router = Backbone.Router.extend({
   },
 
   checkout: function() {
-    
-    var view = new CollectionView();
+    var view = new CheckoutView();
     $('body').html(view.el);
   }
   //
