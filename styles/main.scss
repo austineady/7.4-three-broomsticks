@@ -158,7 +158,7 @@ body {
   height: auto;
   bottom: 0;
   position: fixed;
-  background-color: rgba(11, 25, 51, 1);
+  background-color: rgba(17, 23, 33, 1);
 }
 
 .cartbox {
@@ -237,4 +237,22 @@ body {
 
 .cart-price {
   float: right;
+}
+
+.cart-subtotal {
+  float: right;
+}
+
+.subtotal-text {
+  float: left;
+}
+
+.subtotal-box {
+  @include span-columns(8);
+  @include shift(2);
+  height: auto;
+  border-top: 1px solid white;
+  padding: 5px;
+  color: white;
+  margin-bottom: 10px;
 }

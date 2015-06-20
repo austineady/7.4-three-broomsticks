@@ -6,6 +6,7 @@ export default Backbone.View.extend({
   },
 
   initialize: function() {
+    this.drinks = this.collection.drinks;
     this.render();
   },
 
@@ -15,7 +16,8 @@ export default Backbone.View.extend({
 
   addToOrder: function(e) {
     e.preventDefault();
-    this.collection.add(this.model);
-    console.log(this.collection);
+    this.drinks.add(this.model);
+    console.log(this.drinks);
+    this.render();
   }
 });

@@ -38,6 +38,12 @@ var Order = Backbone.Model.extend({
         };
       })
     });
+  },
+
+  findTotal: function() {
+    return this.drinks.reduce(function(a, b) {
+      return a + b.get('price');
+    }, 0);
   }
 });
 

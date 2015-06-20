@@ -1,9 +1,12 @@
 import ListItemView from './listitem';
+import OrderView from './orderview';
 
 export default Backbone.View.extend({
   template: JST.list,
 
   order: '',
+
+  total: 0,
 
   events: {
     'click .add-to-cart-button': 'displayFoot',
@@ -12,14 +15,9 @@ export default Backbone.View.extend({
   },
 
   initialize: function() {
-    this.order = this.model;
-    console.log(this.order);
-    if(this.order.drinks.models.length === 0) {
-      this.render();
-    } else {
-      this.render();
-      this.displayFoot();
-    }
+    console.log(this.model);
+    this.render();
+    this.listenTo(this.model, 'add remove', this.displayFoot);
   },
 
   render: function() {
@@ -29,13 +27,10 @@ export default Backbone.View.extend({
   },
 
   displayFoot: function() {
-    var orderItems = this.order.drinks.models;
-    $('.shopping-cart').html(JST.cart({
-      subtotal: 1,
-      items: orderItems
-    }));
+    var orderview = new OrderView({model: this.model});
+    $('.shopping-cart').html(orderview.el);
   },
-  
+
   displayItems: function(e) {
     this.$('.shopping-cart-item-box').css('display', 'block');
     e.target.className = 'drop-footer-down';
@@ -52,7 +47,7 @@ export default Backbone.View.extend({
   this.children = this.collection.map(function(child) {
     var view = new ListItemView({
       model: child,
-      collection: this.order
+      collection: this.model
     });
     this.$('.list-container').append(view.el);
     return view;

@@ -1,6 +1,7 @@
 import IndexView from './views/indexview';
 import ListView from './views/listview';
 import ajaxConfig from './ajax-config';
+import OrderView from './views/orderview';
 
 import {DrinkCollection} from './models/drinkcollection';
 import {Order} from './models/project';
@@ -9,7 +10,8 @@ var Router = Backbone.Router.extend({
 
   routes: {
     '': 'index',
-    'distillery': 'distillery'
+    'distillery': 'distillery',
+    'checkout': 'checkout'
   },
 
   initialize: function() {
@@ -32,6 +34,12 @@ var Router = Backbone.Router.extend({
         });
       $('body').html(view.el);
     });
+  },
+
+  checkout: function() {
+    
+    var view = new CollectionView();
+    $('body').html(view.el);
   }
   //
   // setHeader: function (xhr) {
