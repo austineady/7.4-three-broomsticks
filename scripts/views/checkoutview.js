@@ -4,7 +4,6 @@ export default Backbone.View.extend({
   template: JST.checkout,
 
   initialize: function() {
-    console.log(this.model);
     this.render();
   },
 
@@ -15,7 +14,10 @@ export default Backbone.View.extend({
 
   renderChildren: function(){
     _.invoke(this.children || [], 'remove');
-
+    //I created a checkout item view for children in case a user wanted to,
+    //change their order at the last minute
+    //I got the data back from parse pretty nested
+    // (this.model.results[0].orders was the array of ordered items)
     this.children = this.model.results[0].orders.map(function(child) {
       var view = new CheckoutItemView({
         model: child

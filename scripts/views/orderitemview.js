@@ -6,7 +6,6 @@ export default Backbone.View.extend({
   },
 
   initialize: function() {
-    console.log(this.model);
     this.render();
   },
 
@@ -15,6 +14,7 @@ export default Backbone.View.extend({
   },
 
   removeFromCart: function() {
+    //upon clicking the [x] button next to the item, remove yourself the Order Model's collection
     this.model.collection.remove(this.model);
   }
 });

@@ -2,22 +2,21 @@ import ListItemView from './listitem';
 import OrderView from './orderview';
 
 export default Backbone.View.extend({
+
   template: JST.list,
 
-  order: '',
-
-  total: 0,
-
   events: {
+    //when a user clicks on add to cart, the footer should show at the bottom
     'click .add-to-cart-button': 'displayFoot',
+    //if the user wants to see what is currently in checkout que, they can click the arrow
     'click .drop-footer': 'displayItems',
+    //if the user wants to hide what is in the checkout que, they can re-click the arrow
     'click .drop-footer-down': 'hideItems'
-    //'click .remove-cart-item': 'removeFromOrder'
   },
 
   initialize: function() {
-    console.log(this.model);
     this.render();
+    //listen to the ORDER model, for any add or remove events and upon adding or removing, re-render the footer
     this.listenTo(this.model, 'add remove', this.displayFoot);
   },
 
@@ -28,21 +27,19 @@ export default Backbone.View.extend({
   },
 
   displayFoot: function() {
+    //if the user has clicked on an item and the collection inside of the model is > 0, display footer
     if(this.model.drinks.length > 0) {
+      //if the user has added an item to the order, send along the model to the orderView to display it
       var orderview = new OrderView({model: this.model});
       $('.shopping-cart').html(orderview.el);
+      //upon clicking an item, show the contents they just clicked (optional)
       this.$('.shopping-cart-item-box').css('display', 'block');
       this.$('.drop-footer').className = 'drop-footer-down';
     } else {
+      //if the user has removed an item and no items are in checkout queue, empty footer contents
       $('.shopping-cart').html('');
     }
   },
-
-  // removeFromOrder: function(e) {
-  //   e.preventDefault();
-  //   console.log(this.model);
-  //   this.model.drinks.model.remove(this.model);
-  // },
 
   displayItems: function(e) {
     this.$('.shopping-cart-item-box').css('display', 'block');
@@ -58,6 +55,10 @@ export default Backbone.View.extend({
   _.invoke(this.children || [], 'remove');
 
   this.children = this.collection.map(function(child) {
+    //take each item in the collection of items and give it it's own view
+    //this will allow you to narrow down an event to an individual model
+    //each view also needs access to the ORDER model, since each list item is taken by the model property,
+    //send the order model through as collection
     var view = new ListItemView({
       model: child,
       collection: this.model

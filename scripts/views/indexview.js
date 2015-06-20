@@ -11,3 +11,5 @@ export default Backbone.View.extend({
     this.$el.html(this.template());
   }
 });
+
+//this is just the landing page
