@@ -5,7 +5,7 @@ import OrderView from './views/orderview';
 import CheckoutView from './views/checkoutview';
 
 import {DrinkCollection} from './models/drinkcollection';
-import {Order} from './models/project';
+import {Order} from './models/order';
 
 var Router = Backbone.Router.extend({
 
@@ -38,8 +38,13 @@ var Router = Backbone.Router.extend({
   },
 
   checkout: function() {
-    var view = new CheckoutView();
-    $('body').html(view.el);
+    var order = new Order();
+    order.fetch().then(function(order) {
+      var view = new CheckoutView({
+        model: order
+      });
+      $('body').html(view.el);
+    });
   }
   //
   // setHeader: function (xhr) {

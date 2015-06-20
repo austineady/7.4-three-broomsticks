@@ -11,8 +11,8 @@ export default Backbone.View.extend({
   events: {
     'click .add-to-cart-button': 'displayFoot',
     'click .drop-footer': 'displayItems',
-    'click .drop-footer-down': 'hideItems',
-    'click .remove-cart-item': 'removeFromOrder'
+    'click .drop-footer-down': 'hideItems'
+    //'click .remove-cart-item': 'removeFromOrder'
   },
 
   initialize: function() {
@@ -31,14 +31,18 @@ export default Backbone.View.extend({
     if(this.model.drinks.length > 0) {
       var orderview = new OrderView({model: this.model});
       $('.shopping-cart').html(orderview.el);
+      this.$('.shopping-cart-item-box').css('display', 'block');
+      this.$('.drop-footer').className = 'drop-footer-down';
+    } else {
+      $('.shopping-cart').html('');
     }
   },
 
-  removeFromOrder: function(e) {
-    e.preventDefault();
-    this.model.drinks.remove(this.model);
-    this.displayFoot();
-  },
+  // removeFromOrder: function(e) {
+  //   e.preventDefault();
+  //   console.log(this.model);
+  //   this.model.drinks.model.remove(this.model);
+  // },
 
   displayItems: function(e) {
     this.$('.shopping-cart-item-box').css('display', 'block');

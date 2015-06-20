@@ -8,6 +8,8 @@ var Order = Backbone.Model.extend({
 
   total: 0,
 
+  ready: false,
+
   defaults: {
     name: ''
   },
@@ -33,8 +35,13 @@ var Order = Backbone.Model.extend({
       drinks: this.drinks.map(function(drink) {
         return {
           "__type": "Pointer",
-          "clasName": "Drinks",
-          "objectId": drink.id
+          "className": "Drinks",
+          "objectId": drink.id,
+        };
+      }),
+      orders: this.drinks.map(function(drink) {
+        return {
+          "orders": drink
         };
       })
     });

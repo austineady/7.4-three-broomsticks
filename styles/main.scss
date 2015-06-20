@@ -93,7 +93,7 @@ a {
 
 .list-container {
   @include span-columns(12);
-  height: auto;
+  height: 90vw;
   position: relative;
   top: 33%;
   margin: 0;
@@ -113,6 +113,7 @@ a {
   margin-top: 30px;
   padding-bottom: 35px;
   border-bottom: 1px solid silver;
+  overflow-y: scroll;
 }
 
 .drink-item-picture {
@@ -241,6 +242,7 @@ a {
 .shopping-cart-item-box {
   @include span-columns(12);
   display: none;
+  transition: 2s;
 }
 
 .cart-item {
