@@ -4,6 +4,8 @@ import ajaxConfig from './ajax-config';
 import OrderView from './views/orderview';
 import CheckoutView from './views/checkoutview';
 
+
+import {UserCollection} from './models/usermodel';
 import {DrinkCollection} from './models/drinkcollection';
 import {Order} from './models/order';
 
@@ -12,6 +14,7 @@ var Router = Backbone.Router.extend({
   routes: {
     '': 'index',
     'distillery': 'distillery',
+    'distillery/:username': 'userDistillery',
     'checkout': 'checkout'
   },
 
@@ -20,13 +23,34 @@ var Router = Backbone.Router.extend({
   },
 
   index: function() {
-    var view = new IndexView();
-    $('body').html(view.el);
+    var users = new UserCollection();
+    users.fetch().then(function() {
+      var view = new IndexView({collection: users});
+      $('body').html(view.el);
+    });
   },
 
   distillery: function() {
     var drinks = new DrinkCollection();
     var order = new Order();
+    //upon loading the page, go get the data
+    drinks.fetch().then(function(collection) {
+      //Parse returns your data under a results object
+      var collectionArray = collection.results;
+      //send that data as a collection in the view rendering my entire menu list
+      //also send along the order model so that the menu items have access
+      var view = new ListView({
+        collection: collectionArray,
+        model: order
+        });
+      $('body').html(view.el);
+    });
+  },
+
+  userDistillery: function(username) {
+    var drinks = new DrinkCollection();
+    var order = new Order();
+    console.log(username);
     //upon loading the page, go get the data
     drinks.fetch().then(function(collection) {
       //Parse returns your data under a results object
@@ -55,5 +79,4 @@ var Router = Backbone.Router.extend({
 
 });
 
-var router = new Router();
-export default router;
+export default Router;
