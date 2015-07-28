@@ -38,9 +38,7 @@ this["JST"]["index"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"ma
 this["JST"]["item"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<li class=\"drink-item-container\">\n  <img src=\""
-    + alias3(((helper = (helper = helpers.picture || (depth0 != null ? depth0.picture : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"picture","hash":{},"data":data}) : helper)))
-    + "\" class=\"drink-item-picture\">\n  <h1 class=\"drink-item name-text\">"
+  return "<li class=\"drink-item-container\">\n  <img src=\"../../assets/13-barrel-512.png\" class=\"drink-item-picture\">\n  <h1 class=\"drink-item name-text\">"
     + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
     + "</h1>\n  <p class=\"drink-item description-text\">"
     + alias3(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"description","hash":{},"data":data}) : helper)))
