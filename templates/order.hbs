@@ -1,0 +1,14 @@
+<div class="cartbox">
+  {{log this}}
+  <i class="fa fa-shopping-cart"></i>
+  <span class="item-number-text">{{this.item.length}}</span>
+  <i class="fa fa-sort"></i>
+  <button class="drop-footer"></button>
+</div>
+<div class="shopping-cart-item-box">
+    <div class="subtotal-box">
+      <span class="subtotal-text">Subtotal:</span>
+      <span class="cart-subtotal">$ {{subtotal}}</span>
+      <a href="#/checkout" class="checkout-button">Checkout</a>
+    </div>
+</div>

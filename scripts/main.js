@@ -1,7 +1,10 @@
+import Router from './router';
+
 (function(){
   'use strict';
 
   $(document).ready(function(){
-    $('body').prepend(JST.application());
+    window.router = new Router();
+    Backbone.history.start();
   });
 })();

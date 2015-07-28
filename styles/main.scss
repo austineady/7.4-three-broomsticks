@@ -15,7 +15,438 @@ $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
 
 body {
-  font-family: $base-font-family;
+  @include outer-container(1500px);
+  max-height: 100vh;
+  font-family: 'Alegreya SC', serif;;
   background-color: $base-background-color;
   color: $base-font-color;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.indexcontent {
+  @include span-columns(12);
+  height: 100vh;
+  background-image: url('../../assets/ThreeBroomSticksCover2.jpg');
+  background-size: cover;
+  background-position: 0 -70px;
+  margin: 0;
+}
+
+.indexheader {
+  @include span-columns(12);
+  height: 70px;
+  position: absolute;
+  top: 0;
+  background-color: rgba(64, 56, 54, .7);
+}
+
+.nav {
+  @include span-columns(2);
+  @include shift(1);
+  color: white;
+  line-height: 30px;
+  text-align: center;
+  height: 50px;
+}
+
+.nav:hover {
+  letter-spacing: 2px;
+  border-bottom: 5px solid white;
+  //border-top: 5px solid white;
+  transition: 1s;
+}
+
+.login {
+  border: 0;
+  background-color: rgba(64, 56, 54, 0);
+  font-size: 23px;
+  font-weight: bold;
+  margin-top: 5px;
+  height: 65px;
+  outline: none;
+}
+
+.log-in-container {
+  @include span-columns(3.5);
+  height: auto;
+  position: absolute;
+  display: none;
+  right: 0;
+  background-color: rgba(64, 56, 54, .7);
+  margin-top: 70px;
+  padding: 5px;
+}
+
+
+.new-user-form {
+  @include span-columns(12);
+  background-color: rgba(64, 56, 54, 0);
+  padding: 5px;
+  margin-top: 5px;
+  display: none;
+  outline: none;
+}
+
+.username-input {
+  @include span-columns(11);
+  @include shift(.5);
+  outline: none;
+  background-color: rgba(243, 243, 243, 1);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.new-user-username-input {
+  @include span-columns(11);
+  @include shift(.5);
+  outline: none;
+  background-color: rgba(243, 243, 243, 1);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.password-input {
+  @include span-columns(11);
+  @include shift(.5);
+  outline: none;
+  background-color: rgba(243, 243, 243, 1);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.new-user-password-input {
+  @include span-columns(11);
+  @include shift(.5);
+  outline: none;
+  background-color: rgba(243, 243, 243, 1);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.new-user-phone-number {
+  @include span-columns(11);
+  @include shift(.5);
+  outline: none;
+  background-color: rgba(243, 243, 243, 1);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.new-user-email-address {
+  @include span-columns(11);
+  @include shift(.5);
+  outline: none;
+  background-color: rgba(243, 243, 243, 1);
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.log-in-button {
+  @include span-columns(4);
+  @include shift(4);
+  margin-top: 10px;
+  height: 40px;
+  outline: none;
+}
+
+.new-user-button {
+  @include span-columns(4);
+  @include shift(4);
+  margin-top: 10px;
+  height: 40px;
+  margin-bottom: 5px;
+  outline: none;
+}
+
+.log-in-button:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(243, 243, 243, 1);
+  border: 1px solid rgba(243, 243, 243, 1);
+  transition: 1s;
+}
+
+.new-user-button:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(243, 243, 243, 1);
+  border: 1px solid rgba(243, 243, 243, 1);
+  transition: 1s;
+}
+
+.new-user-submit {
+  @include span-columns(4);
+  @include shift(4);
+  margin-top: 10px;
+  height: 40px;
+  margin-bottom: 5px;
+  outline: none;
+}
+
+.new-user-submit:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(243, 243, 243, 1);
+  border: 1px solid rgba(243, 243, 243, 1);
+  transition: 1s;
+}
+
+.nav-logo-box {
+  @include span-columns(2);
+  height: 90px;
+  opacity: .7;
+  background-image: url('../../assets/tbslogo.jpg');
+  background-size: cover;
+}
+
+.distillery-content {
+  @include span-columns(12);
+  height: 100vw;
+}
+
+.distillery-header-background {
+  @include span-columns(12);
+  height: 500px;
+  position: fixed;
+  z-index: -2;
+  background: linear-gradient(rgba(250, 250, 250, .4), rgba(250, 250, 250, .4)), url('../../assets/distillery.jpg');
+  background-size: cover;
+  //background-position: 0 -150px;
+  background-repeat: no-repeat;
+}
+
+.distillery-logo-bg {
+  opacity: .7;
+  @include span-columns(11);
+  @include shift(1);
+  height: auto;
+  position: fixed;
+  z-index: -1;
+}
+
+.distillery-header-background-two {
+  @include span-columns(12);
+  margin-top: 500px;
+  height: 500px;
+  position: fixed;
+  z-index: -2;
+  background: url('../../assets/front-view.jpg');
+  background-size: cover;
+  background-position: 0 -150px;
+  background-repeat: no-repeat;
+}
+
+.list-container {
+  @include span-columns(12);
+  height: 90vw;
+  position: relative;
+  top: 33%;
+  margin: 0;
+  padding-bottom: 20px;
+  text-align: center;
+  background-size: cover;
+  box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, .2);
+  background-color: rgba(250, 250, 250, 1);
+  overflow-y: scroll;
+}
+
+.drink-item-container {
+  @include span-columns(11);
+  @include shift(.3);
+  height: auto;
+  color: rgba(10, 16, 26, .98);
+  margin-top: 30px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid silver;
+}
+
+.drink-item-picture {
+  @include span-columns(4);
+  height: auto;
+  float: left;
+  border: 1px solid white;
+  background-color: rgba(250, 250, 250, 1);
+}
+
+.drink-item {
+  @include span-columns(6);
+  float: left;
+  margin: 10px;
+}
+
+.drink-text {
+  @include span-columns(6);
+  float: left;
+  margin: 10px;
+  text-decoration: underline;
+}
+
+.add-to-cart-button {
+  @include span-columns(2.2);
+  @include shift(2);
+  height: 50px;
+  margin-top: 30px;
+  float: left;
+  border: 1px solid rgba(10, 16, 26, .98);
+  background-color: rgba(250, 250, 250, 1);
+  color: rgba(10, 16, 26, .98);
+}
+
+.add-to-cart-button:hover {
+  background-color: rgba(10, 16, 26, .98);
+  color: rgba(250, 250, 250, 1);
+  transition: 1s;
+}
+
+.remove-cart-item {
+  background-color: inherit;
+  color: white;
+  border: 1px solid white;
+  margin-right: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.remove-cart-item:hover {
+  background-color: white;
+  color: rgba(17, 23, 33, 1);
+  transition: 1s;
+}
+
+.description-text {
+  font-size: 20px;
+}
+
+.shopping-cart {
+  @include span-columns(12);
+  height: auto;
+  bottom: 0;
+  position: fixed;
+  background-color: rgba(17, 23, 33, 1);
+}
+
+.cartbox {
+  @include span-columns(4);
+  @include shift(5.5);
+  color: white;
+  font-size: 30px;
+}
+
+.fa-shopping-cart {
+  @include span-columns(1.5);
+  font-size: 40px;
+  margin-right: 10px;
+}
+
+/* .fa-caret-square-o-down {
+  @include span-columns(2);
+  @include shift(8);
+  height: 20px;
+  font-size: 30px;
+} */
+
+.item-number-text {
+  @include span-columns(1);
+  font-size: 30px;
+  margin-left: 15px;
+  margin-top: 3px;
+}
+
+.fa-sort {
+  position: relative;
+  left: -5%;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.drop-footer {
+  @include span-columns(1);
+  @include omega();
+  height: 40px;
+  position: relative;
+  z-index: 1;
+  margin-top: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 0;
+}
+
+.drop-footer-down {
+  @include span-columns(1);
+  @include omega();
+  height: 40px;
+  position: relative;
+  z-index: 1;
+  margin-top: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 0;
+}
+
+.shopping-cart-item-box {
+  @include span-columns(12);
+  display: none;
+  transition: 2s;
+}
+
+.cart-item {
+  @include span-columns(8);
+  @include shift(2);
+  height: auto;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 5px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.cart-price {
+  float: right;
+}
+
+.cart-subtotal {
+  float: right;
+}
+
+.subtotal-text {
+  float: left;
+}
+
+.subtotal-box {
+  @include span-columns(8);
+  @include shift(2);
+  height: auto;
+  border-top: 1px solid white;
+  padding: 5px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.checkout-button {
+  @include span-columns(3);
+  @include shift(4);
+  height: 30px;
+  background-color: inherit;
+  border: 1px solid white;
+  color: white;
+  margin-top: 25px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.checkout-button:hover {
+  background-color: white;
+  color: rgba(17, 23, 33, 1);
+  transition: 1s;
 }
